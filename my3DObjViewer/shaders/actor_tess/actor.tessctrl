@@ -1,0 +1,33 @@
+#version 440 core
+
+uniform float  tessellation_level_inter_0;
+uniform float  tessellation_level_inter_1;
+uniform float  tessellation_level_outer_0;
+uniform float  tessellation_level_outer_1;
+uniform float  tessellation_level_outer_2;
+uniform float  tessellation_level_outer_3;
+
+layout ( vertices = 3 ) out;
+
+in	vec2 vs_tex_coords[];
+
+out TCS_OUT{
+	vec2 vs_tex_coords;
+}tcs_out[];
+
+void main()
+{
+
+	gl_TessLevelInner[0] = tessellation_level_inter_0;
+	gl_TessLevelInner[1] = tessellation_level_inter_1;
+
+	gl_TessLevelOuter[0] = tessellation_level_outer_0;
+	gl_TessLevelOuter[1] = tessellation_level_outer_1;
+	gl_TessLevelOuter[2] = tessellation_level_outer_2;
+	gl_TessLevelOuter[3] = tessellation_level_outer_3;
+
+	gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
+
+	tcs_out[gl_InvocationID].vs_tex_coords =vs_tex_coords[gl_InvocationID];
+
+}

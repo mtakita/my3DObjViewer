@@ -1,0 +1,45 @@
+#version 440 core
+
+uniform mat4 model_matrix;
+uniform mat4 projection_matrix;
+
+layout ( triangles, equal_spacing, ccw ) in;
+
+out vec4 world_space_position;
+
+in TCS_OUT{
+	vec2 vs_tex_coords;
+}tcs_in[];
+
+out VS_OUT{
+	vec2 vs_tex_coords;
+}tes_out;
+
+void main()
+{
+	vec4 localPos = vec4( gl_TessCoord.x * gl_in[0].gl_Position+
+	                      gl_TessCoord.y * gl_in[1].gl_Position+
+						  gl_TessCoord.z * gl_in[2].gl_Position );
+	float L = sqrt( pow((gl_TessCoord.x-(1.0f/3.0f)), 2) +
+					pow((gl_TessCoord.y-(1.0f/3.0f)), 2) +
+					pow((gl_TessCoord.z-(1.0f/3.0f)), 2) );
+	float Q = -3.0f/sqrt(3.0) * L + 1;
+
+	vec3 tempV1 = gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz;
+	vec3 tempV2 = gl_in[2].gl_Position.xyz - gl_in[1].gl_Position.xyz;
+	vec4 n = vec4( normalize( cross( tempV1, tempV2 )), 1.0f );
+	localPos = localPos + n * Q * 0.1f;
+
+
+	vec4 worldPos = localPos * model_matrix;
+	gl_Position = worldPos * projection_matrix;
+
+
+	vec2 texCoord =  gl_TessCoord.x * tcs_in[0].vs_tex_coords + 
+	                 gl_TessCoord.y * tcs_in[1].vs_tex_coords +
+	                 gl_TessCoord.z * tcs_in[2].vs_tex_coords;
+
+	tes_out.vs_tex_coords = texCoord;
+
+}
+

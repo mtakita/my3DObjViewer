@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{49136A79-8FFE-4E90-95D3-4E6B4B752011}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>My3DObjViewer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>My3DObjViewer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;HAVE_PROTOTYPES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\libjpeg-9c\inc;inc\libjpeg;inc\gl3w;inc;GL;inc\bisonflex;libjpeg-9c\inc;inc\obj_reader;inc\obj_reader\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>..\libjpeg-9c\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Opengl32.lib;libjpeg.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;HAVE_PROTOTYPES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\libjpeg-9c\inc;inc\libjpeg;inc\gl3w;inc;GL;inc\bisonflex;libjpeg-9c\inc;inc\obj_reader;inc\obj_reader\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>..\libjpeg-9c\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Opengl32.lib;libjpeg.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_PROTOTYPES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\libjpeg-9c\inc;inc\libjpeg;inc\gl3w;inc;GL;inc\bisonflex;libjpeg-9c\inc;inc\obj_reader;inc\obj_reader\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\libjpeg-9c\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Opengl32.lib;libjpeg.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_PROTOTYPES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\libjpeg-9c\inc;inc\libjpeg;inc\gl3w;inc;GL;inc\bisonflex;libjpeg-9c\inc;inc\obj_reader;inc\obj_reader\share;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\libjpeg-9c\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Opengl32.lib;libjpeg.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CAABB.h" />
+    <ClInclude Include="CActor.h" />
+    <ClInclude Include="CActorAABB.h" />
+    <ClInclude Include="CActorPropertiesWnd.h" />
+    <ClInclude Include="CActorProperty.h" />
+    <ClInclude Include="CActorSelector.h" />
+    <ClInclude Include="CAssetWnd.h" />
+    <ClInclude Include="CConverter.h" />
+    <ClInclude Include="CDebugDrawer.h" />
+    <ClInclude Include="CDeviceContext.h" />
+    <ClInclude Include="CEyeSpace.h" />
+    <ClInclude Include="CGeometryBase.h" />
+    <ClInclude Include="CGLGrid.h" />
+    <ClInclude Include="CGLGrid2.h" />
+    <ClInclude Include="CMy3DObjViewerApp.h" />
+    <ClInclude Include="CMy3DObjViewerDoc.h" />
+    <ClInclude Include="CMy3DObjViewerView.h" />
+    <ClInclude Include="CImporterWavefrontDialog.h" />
+    <ClInclude Include="ClassView.h" />
+    <ClInclude Include="CMyEnginePropertiesWnd.h" />
+    <ClInclude Include="CMyMFCPropertyGridCtrl.h" />
+    <ClInclude Include="CMyTreeView.h" />
+    <ClInclude Include="COleDataSourceEx.h" />
+    <ClInclude Include="COleDropSourceEx.h" />
+    <ClInclude Include="COleDropTargetEx.h" />
+    <ClInclude Include="CSelectable.h" />
+    <ClInclude Include="CStringPropertyHelper.h" />
+    <ClInclude Include="CTessellationBase.h" />
+    <ClInclude Include="CViewportProperty.h" />
+    <ClInclude Include="CWorldOutlinerWnd.h" />
+    <ClInclude Include="etc.h" />
+    <ClInclude Include="FileView.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="geometryhelper.h" />
+    <ClInclude Include="GLRenderer.h" />
+    <ClInclude Include="GL\GL.H" />
+    <ClInclude Include="GL\GLAUX.H" />
+    <ClInclude Include="GL\GLU.H" />
+    <ClInclude Include="GL\glut.h" />
+    <ClInclude Include="IncreasingNumber.h" />
+    <ClInclude Include="inc\gl3w\GL\gl3w.h" />
+    <ClInclude Include="inc\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="inc\gl3w\KHR\khrplatform.h" />
+    <ClInclude Include="inc\libjpeg\jpeglib.h" />
+    <ClInclude Include="inc\lodepng\lodepng.h" />
+    <ClInclude Include="inc\obj_reader\obj_reader.h" />
+    <ClInclude Include="inc\obj_reader\obj_reader_bison.tab.h" />
+    <ClInclude Include="inc\obj_reader\obj_reader_func.h" />
+    <ClInclude Include="inc\obj_reader\share\libgen_share.h" />
+    <ClInclude Include="inc\obj_reader\share\stdio_share.h" />
+    <ClInclude Include="inc\obj_reader\share\string_share.h" />
+    <ClInclude Include="logGLError.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="mylibjpeg.h" />
+    <ClInclude Include="mymath.h" />
+    <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="PropertiesWnd.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ShaderVariableNames.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ViewTree.h" />
+    <ClInclude Include="WavefrontObjFile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CAABB.cpp" />
+    <ClCompile Include="CActor.cpp" />
+    <ClCompile Include="CActorAABB.cpp" />
+    <ClCompile Include="CActorPropertiesWnd.cpp" />
+    <ClCompile Include="CActorProperty.cpp" />
+    <ClCompile Include="CActorSelector.cpp" />
+    <ClCompile Include="CAssetWnd.cpp" />
+    <ClCompile Include="CConverter.cpp" />
+    <ClCompile Include="CDebugDrawer.cpp" />
+    <ClCompile Include="CDeviceContext.cpp" />
+    <ClCompile Include="CEyeSpace.cpp" />
+    <ClCompile Include="CGeometryBase.cpp" />
+    <ClCompile Include="CGLGrid.cpp" />
+    <ClCompile Include="CGLGrid2.cpp" />
+    <ClCompile Include="CMy3DObjViewerApp.cpp" />
+    <ClCompile Include="CMy3DObjViewerDoc.cpp" />
+    <ClCompile Include="CMy3DObjViewerView.cpp" />
+    <ClCompile Include="CImporterWavefrontDialog.cpp" />
+    <ClCompile Include="ClassView.cpp" />
+    <ClCompile Include="CMyEnginePropertiesWnd.cpp" />
+    <ClCompile Include="CMyMFCPropertyGridCtrl.cpp" />
+    <ClCompile Include="CMyTreeView.cpp" />
+    <ClCompile Include="COleDataSourceEx.cpp" />
+    <ClCompile Include="COleDropSourceEx.cpp" />
+    <ClCompile Include="COleDropTargetEx.cpp" />
+    <ClCompile Include="CSelectable.cpp" />
+    <ClCompile Include="CStringPropertyHelper.cpp" />
+    <ClCompile Include="CTessellationBase.cpp" />
+    <ClCompile Include="CViewportProperty.cpp" />
+    <ClCompile Include="CWorldOutlinerWnd.cpp" />
+    <ClCompile Include="etc.cpp" />
+    <ClCompile Include="FileView.cpp" />
+    <ClCompile Include="geometryhelper.cpp" />
+    <ClCompile Include="IncreasingNumber.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="PropertiesWnd.cpp" />
+    <ClCompile Include="src\gl3w\gl3w.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\lodepng\lodepng.cpp" />
+    <ClCompile Include="src\obj_reader\obj_reader_bison.tab.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\obj_reader_flex.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\obj_reader_func.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\libgen_share.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\stdio_share.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\string_share.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ViewTree.cpp" />
+    <ClCompile Include="WavefrontObjFile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="My3DObjViewer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\CMy3DObjViewer.ico" />
+    <Image Include="res\CMy3DObjViewerDoc.ico" />
+    <Image Include="res\classview.bmp" />
+    <Image Include="res\classview_hc.bmp" />
+    <Image Include="res\class_view.ico" />
+    <Image Include="res\class_view_hc.ico" />
+    <Image Include="res\explorer.bmp" />
+    <Image Include="res\explorer_hc.bmp" />
+    <Image Include="res\fileview.bmp" />
+    <Image Include="res\fileview_hc.bmp" />
+    <Image Include="res\file_view.ico" />
+    <Image Include="res\file_view_hc.ico" />
+    <Image Include="res\menuimages.bmp" />
+    <Image Include="res\menuimages_hc.bmp" />
+    <Image Include="res\output_wnd.ico" />
+    <Image Include="res\output_wnd_hc.ico" />
+    <Image Include="res\properties.bmp" />
+    <Image Include="res\properties_hc.bmp" />
+    <Image Include="res\properties_wnd.ico" />
+    <Image Include="res\properties_wnd_hc.ico" />
+    <Image Include="res\sort.bmp" />
+    <Image Include="res\sort_hc.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="res\userimages.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inc\bisonflex\obj_reader_bison.y">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="inc\bisonflex\obj_reader_flex.l">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="res\CMy3DObjViewer.rc2" />
+    <None Include="shaders\aabb\aabb.flag" />
+    <None Include="shaders\aabb\aabb.vert" />
+    <None Include="shaders\actor\actor.flag" />
+    <None Include="shaders\actor\actor.flag2" />
+    <None Include="shaders\actor\actor.vert" />
+    <None Include="shaders\actor\actor_bdry.flag" />
+    <None Include="shaders\actor\actor_bdry.vert" />
+    <None Include="shaders\actor_tess\actor.flag" />
+    <None Include="shaders\actor_tess\actor.geo" />
+    <None Include="shaders\actor_tess\actor.tessctrl" />
+    <None Include="shaders\actor_tess\actor.tesseval" />
+    <None Include="shaders\actor_tess\actor.vert" />
+    <None Include="shaders\actor_tess\actor_bdry.flag" />
+    <None Include="shaders\actor_tess\actor_bdry.vert" />
+    <None Include="shaders\debugdrawer\debugdrawer.flag" />
+    <None Include="shaders\debugdrawer\debugdrawer.vert" />
+    <None Include="shaders\fragment_shader.flag" />
+    <None Include="shaders\grid2\grid2.flag" />
+    <None Include="shaders\grid2\grid2.vert" />
+    <None Include="shaders\grid\grid.flag" />
+    <None Include="shaders\grid\grid.vert" />
+    <None Include="shaders\vertext_shader.vert" />
+    <None Include="src\obj_reader\Makefile" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

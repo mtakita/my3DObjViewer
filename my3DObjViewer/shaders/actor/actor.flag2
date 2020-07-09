@@ -1,0 +1,34 @@
+#version 410 core
+
+uniform sampler2D tex;
+
+layout ( location = 0 ) out vec4 fColor;
+
+in vec3 vs_fs_normal;
+
+// from vertex shader.
+in VS_OUT{
+	vec2 vs_tex_coords;
+}vs_in;
+
+
+void
+main()
+{
+	float frequency = 16;
+	float dp;
+
+	vec3 color0 = vec3( 0, 0, 0 );
+	vec3 color1 = vec3( 0, 0, 1 );
+
+	float sawtooth = fract( vs_in.vs_tex_coords.s * frequency);
+	float triangle = abs( sawtooth * 2 - 1);
+	
+	dp = length( vec2( dFdx(vs_in.vs_tex_coords.s), dFdy(vs_in.vs_tex_coords.s) ) );
+	float edge = dp * frequency * 2.0f;
+	float square = smoothstep( 0.5 - edge, 0.5 + edge, triangle );
+
+
+	vec3 color = mix( color0, color1, square );
+	fColor = vec4( color, 1.0 );
+}

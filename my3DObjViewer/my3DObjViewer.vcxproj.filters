@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{35c1085f-e873-4116-8f01-dfd0c7fbe04b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL">
+      <UniqueIdentifier>{ed2147f4-4e29-41d6-b40a-4678d0232463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{af1dc8e3-fe13-44ed-bda0-cd0bda771267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{70ec3070-478c-4109-834a-5776cbb3f78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\bisonflex">
+      <UniqueIdentifier>{15bb7547-99c9-4fbc-b9bc-b4b32870379b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\common">
+      <UniqueIdentifier>{3628da1b-b47a-4738-a998-808a8893ebbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\gl3w">
+      <UniqueIdentifier>{278455f6-860e-4540-b037-73cfd175b962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\gl3w\GL">
+      <UniqueIdentifier>{e51e78b8-a29d-4526-a48c-b8f546a3ea38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\gl3w\KHR">
+      <UniqueIdentifier>{2c837ddf-efdd-4d64-8c44-4f6041625ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\libjpeg">
+      <UniqueIdentifier>{1d5288b4-9762-4a3c-8e41-c744a2519564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\lodepng">
+      <UniqueIdentifier>{d545aa9c-cdd6-4dcf-b7e8-7438063b8f05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\obj_reader">
+      <UniqueIdentifier>{1461578e-0e33-4b9e-8a05-54ac82023238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gl3w">
+      <UniqueIdentifier>{103e5881-724c-485c-9152-32113f5919fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lodepng">
+      <UniqueIdentifier>{891be31d-d4aa-4e88-b6b9-cfc1e385bdf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\obj_reader">
+      <UniqueIdentifier>{9ec26fb8-fef2-4a26-a875-509e8fb37b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\readers">
+      <UniqueIdentifier>{bba2119b-381b-4a8e-95e6-99d8770f2a74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\readers">
+      <UniqueIdentifier>{abd65f71-f8b7-4c57-a7b4-c7134edaf1af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\readers\wavefrontobj">
+      <UniqueIdentifier>{6d11e7f0-8de9-41f3-9d56-b554715b5114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\readers\wavefrontobj">
+      <UniqueIdentifier>{c82e7662-5aec-4287-9220-fa546edaea96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{bdbcd6bb-1c7a-44f2-a410-44614b681363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\viewport">
+      <UniqueIdentifier>{87e331e3-3c23-42f3-95a4-ef3bcd9b9abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\viewport">
+      <UniqueIdentifier>{4fbb4523-f4c7-44e5-bcc0-c8c9bb656443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\converter">
+      <UniqueIdentifier>{2f488ca8-d634-41ca-adbe-7b254782fcdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\converter">
+      <UniqueIdentifier>{f3f80c7c-1070-49df-a77f-166eb8db8bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\grid">
+      <UniqueIdentifier>{0f3aafe9-f113-4041-b97e-02fa8c1ffe4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\properties">
+      <UniqueIdentifier>{5be63b36-1359-4503-b640-ee797e8fa363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\properties">
+      <UniqueIdentifier>{4218d042-98a8-48ba-a624-24080348a95b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\actor">
+      <UniqueIdentifier>{10a66c3f-95fa-420b-b3cf-bec108702829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\aabb">
+      <UniqueIdentifier>{b16995cc-f3bd-4015-a442-5e800fe12a2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\viewport\temp">
+      <UniqueIdentifier>{00ab1e8d-30f5-4c48-a6e4-23875d2c830f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\viewport\temp">
+      <UniqueIdentifier>{696e627b-5fc8-4b51-b3e6-784d34c084b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\debugdrawer">
+      <UniqueIdentifier>{7703812b-0df6-4070-a659-a739dfb41157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\obj_reader\share">
+      <UniqueIdentifier>{c30449c1-a5e0-479b-a029-dcd122bc4146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\obj_reader\share">
+      <UniqueIdentifier>{f734fa3a-4758-459e-ae16-965346d12886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\grid2">
+      <UniqueIdentifier>{f7c00689-e9a2-4538-9a57-0df99e86c603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\properties\helper">
+      <UniqueIdentifier>{dd6297b4-8599-4aa8-8022-18473e209531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\properties\helper">
+      <UniqueIdentifier>{682635f1-e276-4d9c-b448-1352ee1c1323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\actor_tesse">
+      <UniqueIdentifier>{e1153764-53c0-4dac-8a5d-3cf581a64ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\properties\actorProperty">
+      <UniqueIdentifier>{1883937d-e3ca-4504-acf1-ed91aad6348c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\properties\worldOutliner">
+      <UniqueIdentifier>{7daa96be-4568-4d96-a84f-1750d8919efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\importer">
+      <UniqueIdentifier>{77b71fba-7873-47e2-be1f-5e378d03cf6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\importer\wavefront">
+      <UniqueIdentifier>{77377ed2-af50-4926-ac11-2e2caecde508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\importer">
+      <UniqueIdentifier>{382cf0c9-bd96-4574-9ab8-ea890efad4cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\importer\wavefront">
+      <UniqueIdentifier>{e164d6e8-1ffe-4614-9d33-e520c5a99c83}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FileView.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassView.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewTree.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\GL.H">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\GLAUX.H">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\GLU.H">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\glut.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\gl3w\GL\gl3w.h">
+      <Filter>inc\gl3w\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\gl3w\GL\glcorearb.h">
+      <Filter>inc\gl3w\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\gl3w\KHR\khrplatform.h">
+      <Filter>inc\gl3w\KHR</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\libjpeg\jpeglib.h">
+      <Filter>inc\libjpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\lodepng\lodepng.h">
+      <Filter>inc\lodepng</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\obj_reader.h">
+      <Filter>inc\obj_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\obj_reader_bison.tab.h">
+      <Filter>inc\obj_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="GLRenderer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CAssetWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\obj_reader_func.h">
+      <Filter>inc\obj_reader</Filter>
+    </ClInclude>
+    <ClInclude Include="WavefrontObjFile.h">
+      <Filter>inc\readers\wavefrontobj</Filter>
+    </ClInclude>
+    <ClInclude Include="mymath.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="COleDataSourceEx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="COleDropSourceEx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="COleDropTargetEx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="IncreasingNumber.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="CActor.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CConverter.h">
+      <Filter>inc\converter</Filter>
+    </ClInclude>
+    <ClInclude Include="mylibjpeg.h">
+      <Filter>inc\libjpeg</Filter>
+    </ClInclude>
+    <ClInclude Include="logGLError.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="etc.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyEnginePropertiesWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CViewportProperty.h">
+      <Filter>inc\properties</Filter>
+    </ClInclude>
+    <ClInclude Include="CActorAABB.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CActorSelector.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="geometryhelper.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="CGeometryBase.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CGLGrid.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CAABB.h">
+      <Filter>inc\viewport\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="CDebugDrawer.h">
+      <Filter>inc\viewport\temp</Filter>
+    </ClInclude>
+    <ClInclude Include="CSelectable.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CActorPropertiesWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CDeviceContext.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="CActorProperty.h">
+      <Filter>inc\properties</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyMFCPropertyGridCtrl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CEyeSpace.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CWorldOutlinerWnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyTreeView.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\share\libgen_share.h">
+      <Filter>inc\obj_reader\share</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\share\stdio_share.h">
+      <Filter>inc\obj_reader\share</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\obj_reader\share\string_share.h">
+      <Filter>inc\obj_reader\share</Filter>
+    </ClInclude>
+    <ClInclude Include="CGLGrid2.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CTessellationBase.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CStringPropertyHelper.h">
+      <Filter>inc\properties\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderVariableNames.h">
+      <Filter>inc\common</Filter>
+    </ClInclude>
+    <ClInclude Include="CImporterWavefrontDialog.h">
+      <Filter>inc\importer\wavefront</Filter>
+    </ClInclude>
+    <ClInclude Include="CMy3DObjViewerApp.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CMy3DObjViewerDoc.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CMy3DObjViewerView.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FileView.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassView.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewTree.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gl3w\gl3w.c">
+      <Filter>src\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lodepng\lodepng.cpp">
+      <Filter>src\lodepng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\obj_reader_bison.tab.c">
+      <Filter>src\obj_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\obj_reader_func.c">
+      <Filter>src\obj_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="CAssetWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\obj_reader_flex.c">
+      <Filter>src\obj_reader</Filter>
+    </ClCompile>
+    <ClCompile Include="WavefrontObjFile.cpp">
+      <Filter>src\readers\wavefrontobj</Filter>
+    </ClCompile>
+    <ClCompile Include="COleDataSourceEx.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="COleDropSourceEx.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="COleDropTargetEx.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="IncreasingNumber.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="CActor.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CConverter.cpp">
+      <Filter>src\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="etc.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyEnginePropertiesWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CViewportProperty.cpp">
+      <Filter>src\properties</Filter>
+    </ClCompile>
+    <ClCompile Include="CActorAABB.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CActorSelector.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="geometryhelper.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="CGeometryBase.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CGLGrid.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CAABB.cpp">
+      <Filter>src\viewport\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="CDebugDrawer.cpp">
+      <Filter>src\viewport\temp</Filter>
+    </ClCompile>
+    <ClCompile Include="CSelectable.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CActorPropertiesWnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CDeviceContext.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyMFCPropertyGridCtrl.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CEyeSpace.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\libgen_share.c">
+      <Filter>src\obj_reader\share</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\stdio_share.c">
+      <Filter>src\obj_reader\share</Filter>
+    </ClCompile>
+    <ClCompile Include="src\obj_reader\share\string_share.c">
+      <Filter>src\obj_reader\share</Filter>
+    </ClCompile>
+    <ClCompile Include="CGLGrid2.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CTessellationBase.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CStringPropertyHelper.cpp">
+      <Filter>src\properties\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="CActorProperty.cpp">
+      <Filter>src\properties\actorProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CWorldOutlinerWnd.cpp">
+      <Filter>src\properties\worldOutliner</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyTreeView.cpp">
+      <Filter>src\properties\worldOutliner</Filter>
+    </ClCompile>
+    <ClCompile Include="CImporterWavefrontDialog.cpp">
+      <Filter>src\importer\wavefront</Filter>
+    </ClCompile>
+    <ClCompile Include="CMy3DObjViewerApp.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CMy3DObjViewerDoc.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CMy3DObjViewerView.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\file_view.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\file_view_hc.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\class_view.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\class_view_hc.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\fileview.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\fileview_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\classview.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\classview_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\explorer.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\explorer_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\sort.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\sort_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\menuimages.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\menuimages_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\output_wnd.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\output_wnd_hc.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\properties_wnd.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\properties_wnd_hc.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\properties.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\properties_hc.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\userimages.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\CMy3DObjViewer.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="res\CMy3DObjViewerDoc.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\obj_reader\Makefile">
+      <Filter>src\obj_reader</Filter>
+    </None>
+    <None Include="shaders\fragment_shader.flag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\vertext_shader.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="inc\bisonflex\obj_reader_bison.y">
+      <Filter>inc\bisonflex</Filter>
+    </None>
+    <None Include="inc\bisonflex\obj_reader_flex.l">
+      <Filter>inc\bisonflex</Filter>
+    </None>
+    <None Include="shaders\grid\grid.flag">
+      <Filter>shaders\grid</Filter>
+    </None>
+    <None Include="shaders\grid\grid.vert">
+      <Filter>shaders\grid</Filter>
+    </None>
+    <None Include="shaders\debugdrawer\debugdrawer.flag">
+      <Filter>shaders\debugdrawer</Filter>
+    </None>
+    <None Include="shaders\debugdrawer\debugdrawer.vert">
+      <Filter>shaders\debugdrawer</Filter>
+    </None>
+    <None Include="shaders\actor\actor.flag">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\actor\actor.vert">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\actor\actor_bdry.flag">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\actor\actor_bdry.vert">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\aabb\aabb.flag">
+      <Filter>shaders\aabb</Filter>
+    </None>
+    <None Include="shaders\aabb\aabb.vert">
+      <Filter>shaders\aabb</Filter>
+    </None>
+    <None Include="shaders\grid2\grid2.flag">
+      <Filter>shaders\grid2</Filter>
+    </None>
+    <None Include="shaders\grid2\grid2.vert">
+      <Filter>shaders\grid2</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor.flag">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor.geo">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor.tessctrl">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor.tesseval">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor.vert">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor_bdry.flag">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor_tess\actor_bdry.vert">
+      <Filter>shaders\actor_tesse</Filter>
+    </None>
+    <None Include="shaders\actor\actor.flag2">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="res\CMy3DObjViewer.rc2">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="My3DObjViewer.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
