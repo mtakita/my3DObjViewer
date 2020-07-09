@@ -145,6 +145,9 @@
     <Filter Include="inc\importer\wavefront">
       <UniqueIdentifier>{e164d6e8-1ffe-4614-9d33-e520c5a99c83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="inc\properties\worldOutliner">
+      <UniqueIdentifier>{edf72cad-7fe7-449a-bbba-c3250237fbef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -297,9 +300,6 @@
     <ClInclude Include="CEyeSpace.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CWorldOutlinerWnd.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CMyTreeView.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -335,6 +335,9 @@
     </ClInclude>
     <ClInclude Include="CMy3DObjViewerView.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CWorldOutlinerWnd.h">
+      <Filter>inc\properties\worldOutliner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -56,15 +56,11 @@ public:
 protected:
 	CMFCTabCtrl m_wndTabs;
 	CAssetList m_wndAssetBuild;
-	CAssetList m_wndAssetDebug;
-	CAssetList m_wndAssetFind;
 
 	void UpdateFonts();
 
 protected:
 	void FillBuildWindow();
-	void FillDebugWindow();
-	void FillFindWindow();
 
 	DECLARE_MESSAGE_MAP()
 

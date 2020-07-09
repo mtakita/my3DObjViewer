@@ -66,31 +66,12 @@ CAssetList::~CAssetList() {
 
 void CAssetWnd::FillBuildWindow() {
 
-//	m_wndAssetBuild.AddString(_T("ここでアセットを一覧します。"));
-//	m_wndAssetBuild.AddString(_T("出力データはリスト ビューの各行に表示されます"));
-//	m_wndAssetBuild.AddString(_T("表示方法を変更することもできます..."));
-
-}
-
-void CAssetWnd::FillDebugWindow() {
-	m_wndAssetDebug.AddString(_T("ここでデバックを表示します。"));
-	m_wndAssetDebug.AddString(_T("出力データはリスト ビューの各行に表示されます"));
-	m_wndAssetDebug.AddString(_T("表示方法を変更することもできます..."));
-}
-
-void CAssetWnd::FillFindWindow() {
-	m_wndAssetFind.AddString(_T("ここで検索を表示します。"));
-	m_wndAssetFind.AddString(_T("出力データはリスト ビューの各行に表示されます"));
-	m_wndAssetFind.AddString(_T("表示方法を変更することもできます..."));
-
 
 }
 
 void CAssetWnd::UpdateFonts()
 {
 	m_wndAssetBuild.SetFont(&afxGlobalData.fontRegular);
-	m_wndAssetDebug.SetFont(&afxGlobalData.fontRegular);
-	m_wndAssetFind.SetFont(&afxGlobalData.fontRegular);
 }
 
 int CAssetWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -110,9 +91,7 @@ int CAssetWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//出力ペインの作成
 	const DWORD dwStyle = LBS_NOINTEGRALHEIGHT | WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL;
 
-	if (!m_wndAssetBuild.Create(dwStyle, rectDummy, &m_wndTabs, 2) ||
-		!m_wndAssetDebug.Create(dwStyle, rectDummy, &m_wndTabs, 3) ||
-		!m_wndAssetFind.Create(dwStyle, rectDummy, &m_wndTabs, 4)) {
+	if (!m_wndAssetBuild.Create(dwStyle, rectDummy, &m_wndTabs, 2)) {
 
 		TRACE0("出力ウィンドウを作成できませんでした\n");
 		return -1;
@@ -127,17 +106,9 @@ int CAssetWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	bNameValid = strTabName.LoadString(IDS_ASSET_TAB);
 	ASSERT(bNameValid);
 	m_wndTabs.AddTab(&m_wndAssetBuild, strTabName, (UINT)0);
-	bNameValid = strTabName.LoadString(IDS_DEBUG_TAB);
-	ASSERT(bNameValid);
-	m_wndTabs.AddTab(&m_wndAssetDebug, strTabName, (UINT)1);
-	bNameValid = strTabName.LoadString(IDS_FIND_TAB);
-	ASSERT(bNameValid);
-	m_wndTabs.AddTab(&m_wndAssetFind, strTabName, (UINT)2);
 
 	// 出力タブにダミー テキストを入力します
 	FillBuildWindow();
-	FillDebugWindow();
-	FillFindWindow();
 
 	return 0;
 }
@@ -174,14 +145,7 @@ void CAssetList::OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/)
 		mousePos.y,
 		this,
 		NULL);
-	/*
-	m_assetLoadMenu.TrackPopupMenuEx(
-		TPM_CENTERALIGN,
-		mousePos.x,
-		mousePos.y,
-		this,
-		NULL);
-*/
+
 	m_assetLoadMenu.DestroyMenu();
 
 }
