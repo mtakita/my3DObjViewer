@@ -339,6 +339,9 @@
     <ClInclude Include="CWorldOutlinerWnd.h">
       <Filter>inc\properties\worldOutliner</Filter>
     </ClInclude>
+    <ClInclude Include="CFurBase.h">
+      <Filter>inc\viewport</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -485,6 +488,9 @@
     <ClCompile Include="CMy3DObjViewerView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="CFurBase.cpp">
+      <Filter>src\viewport</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\file_view.ico">
@@ -618,9 +624,6 @@
     <None Include="shaders\actor_tess\actor.flag">
       <Filter>shaders\actor_tesse</Filter>
     </None>
-    <None Include="shaders\actor_tess\actor.geo">
-      <Filter>shaders\actor_tesse</Filter>
-    </None>
     <None Include="shaders\actor_tess\actor.tessctrl">
       <Filter>shaders\actor_tesse</Filter>
     </None>
@@ -641,6 +644,15 @@
     </None>
     <None Include="res\CMy3DObjViewer.rc2">
       <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="shaders\actor\actor_fur.geo">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\actor\actor_fur.flag">
+      <Filter>shaders\actor</Filter>
+    </None>
+    <None Include="shaders\actor\actor_fur.vert">
+      <Filter>shaders\actor</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

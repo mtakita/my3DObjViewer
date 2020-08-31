@@ -51,6 +51,7 @@ void CActorPropertiesWnd::InitActorPropList()
 	CMFCPropertyGridProperty* pRotation = new CMFCPropertyGridProperty(_T("Rotation"));
 	CMFCPropertyGridProperty* pScale = new CMFCPropertyGridProperty(_T("Scale"));
 	CMFCPropertyGridProperty* pTessellation = new CMFCPropertyGridProperty(_T("Tessellation"));
+	CMFCPropertyGridProperty* pGeometry = new CMFCPropertyGridProperty(_T("Geometry"));
 
 	index = 0;
 	pActor->AddSubItem(pTranslation);
@@ -65,6 +66,10 @@ void CActorPropertiesWnd::InitActorPropList()
 	pActor->AddSubItem(pTessellation);
 	idxTessellation = index;
 	index++;
+	pActor->AddSubItem(pGeometry);
+	idxGeometry = index;
+	index++;
+
 
 	index = 0;
 	pTranslation->AddSubItem(new CMFCPropertyGridProperty(_T("X"), (_variant_t)0.0f, _T("ActorのX座標を設定します")));
@@ -146,7 +151,17 @@ void CActorPropertiesWnd::InitActorPropList()
 	idxTessellationLevelFactorInner1 = index;
 	index++;
 
+	CMFCPropertyGridProperty* pGeometryFunc = new CMFCPropertyGridProperty(_T("Geometry On/Off"));
 
+	index = 0;
+	pGeometry->AddSubItem(pGeometryFunc);
+	idxGeometryFunc = index;
+	index++;
+
+	index = 0;
+	pGeometryFunc->AddSubItem(new CMFCPropertyGridProperty(_T("ジオメトリ"), (_variant_t)false, _T("ジオメトリのOn/Offを切り替えます")));
+	idxGeometryFuncOnOff = index;
+	index++;
 }
 
 
@@ -405,4 +420,16 @@ void CActorPropertiesWnd::getActorProperty(CActorProperty& actorProperty) {
 	actorProperty.SetTessellationLevelFactorOuter3(tessellationFactorOuter3);
 	actorProperty.SetTessellationLevelFactorInner0(tessellationFactorInner0);
 	actorProperty.SetTessellationLevelFactorInner1(tessellationFactorInner1);
+
+
+	CMFCPropertyGridProperty* pActorGeometry = (CMFCPropertyGridProperty*)pActorProperty->GetSubItem(idxGeometry);
+
+	CMFCPropertyGridProperty* pActorGeometryFunc = (CMFCPropertyGridProperty*)pActorGeometry->GetSubItem(idxGeometryFunc);
+
+	CMFCPropertyGridProperty* pActorGeometryOnOff = (CMFCPropertyGridProperty*)pActorGeometryFunc->GetSubItem(idxGeometryFuncOnOff);
+	bool geometryOnOff = pActorGeometryOnOff->GetValue().boolVal;
+
+	actorProperty.SetGeometryOnOff(geometryOnOff);
+
+
 }

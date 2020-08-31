@@ -215,6 +215,7 @@
     <ClInclude Include="CDebugDrawer.h" />
     <ClInclude Include="CDeviceContext.h" />
     <ClInclude Include="CEyeSpace.h" />
+    <ClInclude Include="CFurBase.h" />
     <ClInclude Include="CGeometryBase.h" />
     <ClInclude Include="CGLGrid.h" />
     <ClInclude Include="CGLGrid2.h" />
@@ -280,6 +281,7 @@
     <ClCompile Include="CDebugDrawer.cpp" />
     <ClCompile Include="CDeviceContext.cpp" />
     <ClCompile Include="CEyeSpace.cpp" />
+    <ClCompile Include="CFurBase.cpp" />
     <ClCompile Include="CGeometryBase.cpp" />
     <ClCompile Include="CGLGrid.cpp" />
     <ClCompile Include="CGLGrid2.cpp" />
@@ -413,8 +415,10 @@
     <None Include="shaders\actor\actor.vert" />
     <None Include="shaders\actor\actor_bdry.flag" />
     <None Include="shaders\actor\actor_bdry.vert" />
+    <None Include="shaders\actor\actor_fur.flag" />
+    <None Include="shaders\actor\actor_fur.geo" />
+    <None Include="shaders\actor\actor_fur.vert" />
     <None Include="shaders\actor_tess\actor.flag" />
-    <None Include="shaders\actor_tess\actor.geo" />
     <None Include="shaders\actor_tess\actor.tessctrl" />
     <None Include="shaders\actor_tess\actor.tesseval" />
     <None Include="shaders\actor_tess\actor.vert" />

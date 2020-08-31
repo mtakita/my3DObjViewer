@@ -82,6 +82,14 @@ public:
 		return m_TessellationFactorInner1;
 	}
 
+	void SetGeometryOnOff(bool inGeometryOnOff) {
+		m_GeometryOnOff = inGeometryOnOff;
+	}
+
+	bool GetGeometryOnOff() {
+		return m_GeometryOnOff;
+	}
+
 private:
 	Vectorf4 actorTranslation;
 	Vectorf4 actorRotation;
@@ -95,6 +103,9 @@ private:
 	int m_TessellationFactorOuter3;
 	int m_TessellationFactorInner0;
 	int m_TessellationFactorInner1;
+
+	bool m_GeometryOnOff;
+
 };
 
 #endif

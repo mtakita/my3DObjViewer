@@ -330,6 +330,51 @@ void CActor::prepareDrawing2( CDeviceContext& devCon )
 	glVertexAttribPointer(vNormal, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(bufferPosition)); logGlError();
 
 
+	//
+	// Prepare texture for fur geometry shader will generate.
+	//
+	glGenTextures(1, &fur_texture);
+
+	int dimension = 1024;
+	int furBuffSize = dimension * dimension * 4;
+	unsigned char* pTextureBuff = (unsigned char*)malloc(furBuffSize);
+
+	memset(pTextureBuff, 0, dimension * dimension * 4);
+
+	for (int n = 0; n < dimension; n++) {
+		for (int m = 0; m < 270; m++) {
+			int x = rand() & 0x3ff;
+			int y = rand() & 0x3ff;
+
+			pTextureBuff[(y * dimension + x) * 4 + 0] = (rand() & 0x3F) + 0xC0;
+			pTextureBuff[(y * dimension + x) * 4 + 1] = (rand() & 0x3F) + 0xC0;
+			pTextureBuff[(y * dimension + x) * 4 + 2] = (rand() & 0x3F) + 0xC0;
+			pTextureBuff[(y * dimension + x) * 4 + 3] = n;
+
+		}
+	}
+
+	glGenBuffers(1, &fur_bufferObject); logGlError();
+	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, fur_bufferObject); logGlError();
+	glBufferData(GL_PIXEL_UNPACK_BUFFER, furBuffSize, pTextureBuff, GL_STATIC_DRAW); logGlError();
+
+	glBindTexture(GL_TEXTURE_2D, fur_texture); logGlError();
+
+	//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dimension, dimension, 0, GL_RGBA, GL_UNSIGNED_BYTE, pTextureBuff); logGlError();
+	glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA8, dimension, dimension ); logGlError();
+	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, dimension, dimension, GL_RGBA, GL_UNSIGNED_BYTE, BUFFER_OFFSET(0)); logGlError();
+
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); logGlError();
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); logGlError();
+
+	static const GLint swizzles[] = { GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA };
+	glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzles); logGlError();
+
+	free(pTextureBuff);
+
+
+
 	wglMakeCurrent(NULL, NULL);
 
 }
@@ -443,6 +488,7 @@ void CActor::RenderRegular(CDeviceContext& devCon, Matrixf4x4 projectionMatrix, 
 
 		GLint render_model_matrix_loc;
 		GLint render_projection_matrix_loc;
+		GLint fur_layers_loc;
 
 		GLint tessellation_level_inner_0_loc;
 		GLint tessellation_level_inner_1_loc;
@@ -514,6 +560,7 @@ void CActor::RenderRegular(CDeviceContext& devCon, Matrixf4x4 projectionMatrix, 
 			glEnableVertexAttribArray(vNormal); logGlError();
 
 			glBindTexture(GL_TEXTURE_2D, (*pUseMaterialTextureInfo).texture); logGlError();
+			glBindBuffer(GL_PIXEL_UNPACK_BUFFER, fur_bufferObject); logGlError();
 
 			if (GetTessellationOnOff() ) {
 
@@ -548,6 +595,67 @@ void CActor::RenderRegular(CDeviceContext& devCon, Matrixf4x4 projectionMatrix, 
 
 		}
 
+		//
+		// Geometry shader
+		//
+
+		if (GetFurGeometryOnOff() == true) {
+
+			glUseProgram(renderProgramIdFurGeometry);
+			logGlError();
+
+			render_model_matrix_loc = glGetUniformLocation(renderProgramIdFurGeometry, ACTOR_VERT_model_matrix);
+			logGlError();
+
+			render_projection_matrix_loc = glGetUniformLocation(renderProgramIdFurGeometry, ACTOR_VERT_projection_matrix);
+			logGlError();
+
+			fur_layers_loc = glGetUniformLocation(renderProgramIdFurGeometry, ACTOR_GEO_fur_layers); logGlError();
+
+			glUniformMatrix4fv(render_model_matrix_loc, 1, GL_TRUE, model_matrix); logGlError();
+			glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_TRUE, projectionMatrix); logGlError();
+			glUniform1f(fur_layers_loc, 30); logGlError();
+
+			for (string useMaterialName : useMaterialNameList) {
+
+				UseMaterialTextureInfo* pUseMaterialTextureInfo = useMaterialList[useMaterialName];
+				int currentNumOfUseMaterialList = useMaterialNameListIndex[useMaterialName];
+
+				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferForIndecies[useMaterialName]);
+				logGlError();
+
+				//
+				// Vertex attribute array pointer setup start.
+				//
+
+				glBindBuffer(GL_ARRAY_BUFFER, buffer);
+				logGlError();
+
+				int bufferPosition = 0;
+
+				glEnableVertexAttribArray(vPosition); logGlError();
+				glEnableVertexAttribArray(vTexCoord); logGlError();
+				glEnableVertexAttribArray(vNormal); logGlError();
+
+				glBindTexture(GL_TEXTURE_2D, fur_texture); logGlError();
+
+				static GLenum mode = GL_FILL;
+				glPolygonMode(GL_FRONT_AND_BACK, mode);
+
+
+				glEnable(GL_BLEND);
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+				glDepthMask(GL_FALSE);
+
+				glDrawElements(GL_TRIANGLES, this->numOfUnifiedIndecies[useMaterialName], GL_UNSIGNED_INT, BUFFER_OFFSET(0)); logGlError();
+
+				glDisable(GL_BLEND);
+				glDepthMask(GL_TRUE);
+
+			}
+		}
+
 	}
 	catch (const std::out_of_range & oor) {
 
@@ -575,6 +683,24 @@ void CActor::LinkRegularShaderProgram() {
 
 }
 
+void CActor::LinkGeometryShaderProgram() {
+
+	renderProgramIdFurGeometry = glCreateProgram();
+	logGlError();
+
+	glAttachShader(renderProgramIdFurGeometry, m_fur_vertex_shader);
+	logGlError();
+
+	glAttachShader(renderProgramIdFurGeometry, m_fur_fragment_shader);
+	logGlError();
+
+	glAttachShader(renderProgramIdFurGeometry, m_fur_geometry_shader );
+	logGlError();
+
+	glLinkProgram(renderProgramIdFurGeometry);
+	LinkError(renderProgramIdFurGeometry);
+
+}
 
 void CActor::LinkRegularTessellationShaderProgram() {
 
@@ -643,6 +769,8 @@ void CActor::InitializeShaders(CDeviceContext& devCon) {
 	InitializeAllShaders( devCon );
 
 	LinkRegularShaderProgram();
+
+	LinkGeometryShaderProgram();
 
 	LinkRegularTessellationShaderProgram();
 
@@ -1035,6 +1163,8 @@ void CActor::importActorProperty( CActorProperty inActorProperty ) {
 		SetTessellationLevelFactorOuter3(inActorProperty.GetTessellationLevelFactorOuter3());
 		SetTessellationLevelFactorInner0(inActorProperty.GetTessellationLevelFactorInner0());
 		SetTessellationLevelFactorInner1(inActorProperty.GetTessellationLevelFactorInner1());
+
+		SetFurGeometryOnOff(inActorProperty.GetGeometryOnOff());
 
 		// Clear the flag.
 		m_pActorPropertiesWnd->clearPropertyUpdateFlag();

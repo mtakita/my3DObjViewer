@@ -69,6 +69,7 @@ public:
 	int idxRotation;
 	int idxScale;
 	int idxTessellation;
+	int idxGeometry;
 
 	// idxTranslation.
 	int idxTranslationX;
@@ -102,6 +103,11 @@ public:
 	int idxTessellationLevelFactorInner0;
 	int idxTessellationLevelFactorInner1;
 
+	// idxGeometry
+	int idxGeometryFunc;
+
+	// idxGeometryFunc
+	int idxGeometryFuncOnOff;
 
 	bool getPropertyUpdateFlag() {
 //		return m_wndActorPropList.getNeedPropertyUpdateFlag();

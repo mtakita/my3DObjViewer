@@ -19,6 +19,7 @@
 #include "CSelectable.h"
 #include "CActorPropertiesWnd.h"
 #include "CTessellationBase.h"
+#include "CFurBase.h"
 
 using std::vector;
 using std::list;
@@ -33,7 +34,7 @@ class CAABB;
 #define CACTOR_SHADER_SELECTED_FLAG     0x0001
 #define CACTOR_SHADER_TESSELLATION_FLAG 0x0002
 
-class CActor : public CGeometryBase, CSelectable, CTessellationBase
+class CActor : public CGeometryBase, CSelectable, CTessellationBase, CFurBase
 {
 public:
 
@@ -169,6 +170,7 @@ public:
 
 	// Normal rendering.
 	GLuint renderProgramId;
+	GLuint renderProgramIdFurGeometry;
 	GLuint renderProgramIdTessellation;
 
 //	GLint render_model_matrix_loc;
@@ -188,6 +190,7 @@ public:
 	int InitializeTessellationShader(CDeviceContext& devCon);
 	boolean shaderNeedsUpdate(CActorProperty inActorProperty );
 	void LinkRegularShaderProgram();
+	void LinkGeometryShaderProgram();
 	void LinkBoundaryShaderProgram();
 	void LinkRegularTessellationShaderProgram();
 	void LinkError(GLuint inProgramId);
@@ -203,6 +206,9 @@ public:
 	GLuint m_regular_vertex_shader;
 	GLuint m_regular_fragment_shader;
 	GLuint m_regular_fragment_shader2;
+	GLuint m_fur_fragment_shader;
+
+	GLuint m_fur_vertex_shader;
 
 	GLuint m_boundary_vertex_shader;
 	GLuint m_boundary_fragment_shader;
@@ -211,21 +217,31 @@ public:
 	GLuint m_tessellation_fragment_shader;
 	GLuint m_tessellation_control_shader;
 	GLuint m_tessellation_evaluation_shader;
-	GLuint m_geometry_shader;
+	GLuint m_fur_geometry_shader;
 
-	ShaderInfo2 shaders[10]{
-		{ &m_regular_vertex_shader,                  GL_VERTEX_SHADER,          "shaders/actor/actor.vert"      },
-		{ &m_regular_fragment_shader,                GL_FRAGMENT_SHADER,        "shaders/actor/actor.flag"      },
-		{ &m_regular_fragment_shader2,               GL_FRAGMENT_SHADER,        "shaders/actor/actor.flag2"      },
+	//
+	// fur texture for geometry shader.
+	//
+	GLuint fur_texture;
+	GLuint fur_bufferObject;
 
-		{ &m_boundary_vertex_shader,                 GL_VERTEX_SHADER,          "shaders/actor/actor_bdry.vert" },
-		{ &m_boundary_fragment_shader,               GL_FRAGMENT_SHADER,        "shaders/actor/actor_bdry.flag" },
+	ShaderInfo2 shaders[12]{
+		{ &m_regular_vertex_shader,          GL_VERTEX_SHADER,          "shaders/actor/actor.vert"      },
+		{ &m_fur_vertex_shader,              GL_VERTEX_SHADER,          "shaders/actor/actor_fur.vert" },
+		{ &m_regular_fragment_shader,        GL_FRAGMENT_SHADER,        "shaders/actor/actor.flag"      },
+		{ &m_regular_fragment_shader2,       GL_FRAGMENT_SHADER,        "shaders/actor/actor.flag2"      },
+		{ &m_fur_fragment_shader,            GL_FRAGMENT_SHADER,        "shaders/actor/actor_fur.flag"  },
 
-		{ &m_tessellation_vertex_shader,             GL_VERTEX_SHADER,          "shaders/actor_tess/actor.vert"      },
-		{ &m_tessellation_fragment_shader,           GL_FRAGMENT_SHADER,        "shaders/actor_tess/actor.flag"      },
-		{ &m_tessellation_control_shader,            GL_TESS_CONTROL_SHADER,    "shaders/actor_tess/actor.tessctrl"  },
-		{ &m_tessellation_evaluation_shader,         GL_TESS_EVALUATION_SHADER, "shaders/actor_tess/actor.tesseval"  },
-		{ &m_geometry_shader,                        GL_GEOMETRY_SHADER,        "shaders/actor_tess/actor.geo"       },
+		{ &m_fur_geometry_shader,            GL_GEOMETRY_SHADER,        "shaders/actor/actor_fur.geo"    },
+
+		{ &m_boundary_vertex_shader,         GL_VERTEX_SHADER,          "shaders/actor/actor_bdry.vert" },
+		{ &m_boundary_fragment_shader,       GL_FRAGMENT_SHADER,        "shaders/actor/actor_bdry.flag" },
+
+		{ &m_tessellation_vertex_shader,     GL_VERTEX_SHADER,          "shaders/actor_tess/actor.vert"      },
+		{ &m_tessellation_fragment_shader,   GL_FRAGMENT_SHADER,        "shaders/actor_tess/actor.flag"      },
+		{ &m_tessellation_control_shader,    GL_TESS_CONTROL_SHADER,    "shaders/actor_tess/actor.tessctrl"  },
+		{ &m_tessellation_evaluation_shader, GL_TESS_EVALUATION_SHADER, "shaders/actor_tess/actor.tesseval"  },
+
 
 	};
 
