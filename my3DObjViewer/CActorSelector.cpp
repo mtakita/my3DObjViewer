@@ -191,7 +191,7 @@ void CActorSelector::SelectActor(int actorId, CMy3DObjViewerDoc* pDoc) {
 			pSelectedActorAABB = pAabb;
 
 			//
-			// Update actor propert with the actor now selected.
+			// Update actor property with the actor now selected.
 			//
 			CActorProperty actorProperty;
 			pAabb->getActorProperty(actorProperty);

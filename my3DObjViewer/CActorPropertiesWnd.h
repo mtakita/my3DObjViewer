@@ -105,9 +105,14 @@ public:
 
 	// idxGeometry
 	int idxGeometryFunc;
+	int idxGeometryLevelFactor;
 
 	// idxGeometryFunc
 	int idxGeometryFuncOnOff;
+
+	// idxGeometryLevelFactor
+	int idxGeometryLevelFactorFurLayer;
+	int idxGeometryLevelFactorFurDepth;
 
 	bool getPropertyUpdateFlag() {
 //		return m_wndActorPropList.getNeedPropertyUpdateFlag();

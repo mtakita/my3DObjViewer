@@ -4,91 +4,66 @@
 #define _CACTORPROPERTY_H_
 
 #include "mymath.h"
+#include "CActor.h"
 
 using namespace mymath;
+
+class CActor;
 
 class CActorProperty
 {
 public:
+
+	// set actor property.
+	void SetActorProperty( CActor * inpMyActor );
+
 	// Translation.
-	float GetActorTranslationX() { return actorTranslation[0]; }
-	float GetActorTranslationY() { return actorTranslation[1]; }
-	float GetActorTranslationZ() { return actorTranslation[2]; }
-	void SetActorTranslationX(float x) { actorTranslation[0] = x; }
-	void SetActorTranslationY(float y) { actorTranslation[1] = y; }
-	void SetActorTranslationZ(float z) { actorTranslation[2] = z; }
+	float GetActorTranslationX();
+	float GetActorTranslationY();
+	float GetActorTranslationZ();
+	void SetActorTranslationX(float x);
+	void SetActorTranslationY(float y);
+	void SetActorTranslationZ(float z);
 
 	// Rotation.
-	float GetActorRotationX() { return actorRotation[0]; }
-	float GetActorRotationY() { return actorRotation[1]; }
-	float GetActorRotationZ() { return actorRotation[2]; }
-	void SetActorRotationX(float x) { actorRotation[0] = x; }
-	void SetActorRotationY(float y) { actorRotation[1] = y; }
-	void SetActorRotationZ(float z) { actorRotation[2] = z; }
+	float GetActorRotationX();
+	float GetActorRotationY();
+	float GetActorRotationZ();
+	void SetActorRotationX(float x);
+	void SetActorRotationY(float y);
+	void SetActorRotationZ(float z);
 
 	// Scale
-	float GetActorScaleK() { return scale_k; }
-	void SetActorScaleK(float k) {
-		scale_k = k;
-	}
+	float GetActorScaleK();
+	void SetActorScaleK(float k);
 
-	void SetTessellationOnOff(bool inTessellationOnOff) {
-		m_TessellationOnOff = inTessellationOnOff;
-	}
-	void SetTessellationDomain(int inTessellationDomain) {
-		m_TessellationDomain = inTessellationDomain;
-	}
-	void SetTessellationLevelFactorOuter0(int inTessellationFactorOuter0) {
-		m_TessellationFactorOuter0 = inTessellationFactorOuter0;
-	}
-	void SetTessellationLevelFactorOuter1(int inTessellationFactorOuter1) {
-		m_TessellationFactorOuter1 = inTessellationFactorOuter1;
-	}
-	void SetTessellationLevelFactorOuter2(int inTessellationFactorOuter2) {
-		m_TessellationFactorOuter2 = inTessellationFactorOuter2;
-	}
-	void SetTessellationLevelFactorOuter3(int inTessellationFactorOuter3) {
-		m_TessellationFactorOuter3 = inTessellationFactorOuter3;
-	}
-	void SetTessellationLevelFactorInner0(int inTessellationFactorInner0) {
-		m_TessellationFactorInner0 = inTessellationFactorInner0;
-	}
-	void SetTessellationLevelFactorInner1(int inTessellationFactorInner1) {
-		m_TessellationFactorInner1 = inTessellationFactorInner1;
-	}
+	void SetTessellationOnOff(bool inTessellationOnOff);
+	void SetTessellationDomain(int inTessellationDomain);
+	void SetTessellationLevelFactorOuter0(int inTessellationFactorOuter0);
+	void SetTessellationLevelFactorOuter1(int inTessellationFactorOuter1);
+	void SetTessellationLevelFactorOuter2(int inTessellationFactorOuter2);
+	void SetTessellationLevelFactorOuter3(int inTessellationFactorOuter3);
+	void SetTessellationLevelFactorInner0(int inTessellationFactorInner0);
+	void SetTessellationLevelFactorInner1(int inTessellationFactorInner1);
 
-	bool GetTessellationOnOff() {
-		return m_TessellationOnOff;
-	}
-	int GetTessellationDomain() {
-		return m_TessellationDomain;
-	}
-	int GetTessellationLevelFactorOuter0() {
-		return m_TessellationFactorOuter0;
-	}
-	int GetTessellationLevelFactorOuter1() {
-		return m_TessellationFactorOuter1;
-	}
-	int GetTessellationLevelFactorOuter2() {
-		return m_TessellationFactorOuter2;
-	}
-	int GetTessellationLevelFactorOuter3() {
-		return m_TessellationFactorOuter3;
-	}
-	int GetTessellationLevelFactorInner0() {
-		return m_TessellationFactorInner0;
-	}
-	int GetTessellationLevelFactorInner1() {
-		return m_TessellationFactorInner1;
-	}
+	bool GetTessellationOnOff();
+	int GetTessellationDomain();
+	int GetTessellationLevelFactorOuter0();
+	int GetTessellationLevelFactorOuter1();
+	int GetTessellationLevelFactorOuter2();
+	int GetTessellationLevelFactorOuter3();
+	int GetTessellationLevelFactorInner0();
+	int GetTessellationLevelFactorInner1();
 
-	void SetGeometryOnOff(bool inGeometryOnOff) {
-		m_GeometryOnOff = inGeometryOnOff;
-	}
+	void SetGeometryOnOff(bool inGeometryOnOff);
 
-	bool GetGeometryOnOff() {
-		return m_GeometryOnOff;
-	}
+	bool GetGeometryOnOff();
+	void SetGeometryOnOff(int inGeometryOnOff);
+
+	int GetGeometryLevelFactorFurLayer();
+	void SetGeometryLevelFactorFurLayer(int inGeometryLevelFactorFurLayer);
+	float GetGeometryLevelFactorFurDepth();
+	void SetGeometryLevelFactorFurDepth(float inGeometryLevelFactorFurDepth);
 
 private:
 	Vectorf4 actorTranslation;
@@ -105,6 +80,8 @@ private:
 	int m_TessellationFactorInner1;
 
 	bool m_GeometryOnOff;
+	int m_GeometryLevelFactorFurLayer;
+	float m_GeometryLevelFactorFurDepth;
 
 };
 

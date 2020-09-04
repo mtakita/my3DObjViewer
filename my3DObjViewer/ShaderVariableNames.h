@@ -3,6 +3,7 @@
 #define ACTOR_VERT_model_matrix "model_matrix"
 #define ACTOR_VERT_projection_matrix "projection_matrix"
 #define ACTOR_GEO_fur_layers "fur_layers"
+#define ACTOR_GEO_fur_depth  "fur_depth"
 
 #define ACTOR_BDRY_VERT_model_matrix "model_matrix"
 #define ACTOR_BDRY_VERT_projection_matrix "projection_matrix"

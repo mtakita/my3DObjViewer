@@ -169,6 +169,14 @@ void CActorAABB::DeselectActor() {
 
 void CActorAABB::getActorProperty(CActorProperty& actorProperty) {
 
+	//
+	// Retrive actor property.
+	//
+	m_pMyActor->getActorProperty(actorProperty);
+
+	return;
+/*
+
 	// Translation.
 	float translationX = m_pMyActor->GetPosX();
 	float translationY = m_pMyActor->GetPosY();
@@ -219,5 +227,6 @@ void CActorAABB::getActorProperty(CActorProperty& actorProperty) {
 
 	actorProperty.SetTessellationLevelFactorInner0(tessellationFactorInner0);
 	actorProperty.SetTessellationLevelFactorInner1(tessellationFactorInner1);
+*/
 
 }

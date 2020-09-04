@@ -30,6 +30,7 @@ using TSequenceNumber = DWORD;
 
 class CActorAABB;
 class CAABB;
+class CActorPropertiesWnd;
 
 #define CACTOR_SHADER_SELECTED_FLAG     0x0001
 #define CACTOR_SHADER_TESSELLATION_FLAG 0x0002
@@ -46,6 +47,9 @@ public:
 	using CTessellationBase::GetTessellationLevelFactorOuter1;
 	using CTessellationBase::GetTessellationLevelFactorOuter2;
 	using CTessellationBase::GetTessellationLevelFactorOuter3;
+	using CFurBase::GetFurGeometryOnOff;
+	using CFurBase::GetFurLayer;
+	using CFurBase::GetFurDepth;
 
 	using CTessellationBase::SetTessellationOnOff;
 	using CTessellationBase::SetTessellationDomain;
@@ -110,6 +114,8 @@ public:
 	void getAABB(float& xMin, float& yMin, float& zMin, float& xMax, float& yMax, float& zMax);
 	CAABB*     createAABB(CActorAABB& actorAABB);
 	CActorAABB* createActorAABB();
+	void getActorProperty(CActorProperty& actorProperty);
+
 
 private:
 
@@ -264,8 +270,6 @@ public:
 	void SetPrevTessellationOnOff(boolean inTessellationFlag);
 	boolean m_prevSelectedFlag;
 	boolean m_prevTessellationOnOff;
-
-
 
 };
 

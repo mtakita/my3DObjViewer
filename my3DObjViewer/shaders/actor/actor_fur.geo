@@ -6,6 +6,7 @@ layout ( triangle_strip, max_vertices = 120 ) out;
 uniform mat4 model_matrix;
 uniform mat4 projection_matrix;
 uniform float fur_layers = 30.0f;
+uniform float fur_depth = 0.05f;
 
 in VS_OUT{
 	vec4 vPosition;
@@ -31,7 +32,7 @@ void main( void ){
 	for( layer = 0; layer < fur_layers; layer++ ){
 		for( n = 0; n < gl_in.length(); n++ ){
 
-			position = tes_out[n].vPosition + vec4( layer * 0.05 * tes_out[n].normal, 0.0f );
+			position = tes_out[n].vPosition + vec4( layer * fur_depth * tes_out[n].normal, 0.0f );
 			gl_Position = position * model_matrix * projection_matrix;
 
 			geo_out.normal = tes_out[n].normal;

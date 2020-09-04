@@ -132,36 +132,50 @@ void CActorPropertiesWnd::InitActorPropList()
 	pTessellationDomainProp->AllowEdit(FALSE);
 
 	index = 0;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[0]"), (_variant_t)((int)2), _T("テセレーションレベル0を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[0]"), _variant_t((long)2, VT_I4), _T("テセレーションレベル0を指定します")));
 	idxTessellationLevelFactorOuter0 = index;
 	index++;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[1]"), (_variant_t)((int)3), _T("テセレーションレベル1を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[1]"), _variant_t((long)3, VT_I4), _T("テセレーションレベル1を指定します")));
 	idxTessellationLevelFactorOuter1 = index;
 	index++;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[2]"), (_variant_t)((int)2), _T("テセレーションレベル2を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[2]"), _variant_t((long)2, VT_I4), _T("テセレーションレベル2を指定します")));
 	idxTessellationLevelFactorOuter2 = index;
 	index++;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[3]"), (_variant_t)((int)5), _T("テセレーションレベル3を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelOuter[3]"), _variant_t((long)5, VT_I4), _T("テセレーションレベル3を指定します")));
 	idxTessellationLevelFactorOuter3 = index;
 	index++;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelInner[0]"), (_variant_t)((int)3), _T("テセレーションレベル0を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelInner[0]"), _variant_t((long)3, VT_I4), _T("テセレーションレベル0を指定します")));
 	idxTessellationLevelFactorInner0 = index;
 	index++;
-	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelInner[1]"), (_variant_t)((int)4), _T("テセレーションレベル1を指定します")));
+	pTessellationLevelFactors->AddSubItem(new CMFCPropertyGridProperty(_T("gl_TessLevelInner[1]"), _variant_t((long)4, VT_I4), _T("テセレーションレベル1を指定します")));
 	idxTessellationLevelFactorInner1 = index;
 	index++;
 
 	CMFCPropertyGridProperty* pGeometryFunc = new CMFCPropertyGridProperty(_T("Geometry On/Off"));
+	CMFCPropertyGridProperty* pGeometryFactors = new CMFCPropertyGridProperty(_T("Geometry Level Factors"));
 
 	index = 0;
 	pGeometry->AddSubItem(pGeometryFunc);
 	idxGeometryFunc = index;
 	index++;
 
+	pGeometry->AddSubItem(pGeometryFactors);
+	idxGeometryLevelFactor = index;
+	index++;
+
 	index = 0;
 	pGeometryFunc->AddSubItem(new CMFCPropertyGridProperty(_T("ジオメトリ"), (_variant_t)false, _T("ジオメトリのOn/Offを切り替えます")));
 	idxGeometryFuncOnOff = index;
 	index++;
+
+	index = 0;
+	pGeometryFactors->AddSubItem(new CMFCPropertyGridProperty(_T("fur_layer"), _variant_t((long)30, VT_I4), _T("毛のレイヤー数を指定します")));
+	idxGeometryLevelFactorFurLayer = index;
+	index++;
+	pGeometryFactors->AddSubItem(new CMFCPropertyGridProperty(_T("fur_depth"), _variant_t(3.0f), _T("毛の長さを指定します")));
+	idxGeometryLevelFactorFurDepth = index;
+	index++;
+
 }
 
 
@@ -300,27 +314,53 @@ void CActorPropertiesWnd::updateActorProperty(CActorProperty actorProperty) {
 
 	// Tessellation level factor inner0
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorInner0 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorInner0);
-	pActorTessellationLevelFactorInner0->SetOriginalValue(_variant_t((int)actorProperty.GetTessellationLevelFactorInner0()));
+	pActorTessellationLevelFactorInner0->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorInner0(), VT_I4));
 
 	// Tessellation level factor inner1
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorInner1 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorInner1);
-	pActorTessellationLevelFactorInner1->SetOriginalValue(_variant_t((int)actorProperty.GetTessellationLevelFactorInner1()));
+	pActorTessellationLevelFactorInner1->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorInner1(), VT_I4));
 
 	// Tessellation level factor outer0
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter0 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorOuter0);
-	pActorTessellationLevelFactorOuter0->SetOriginalValue(_variant_t((int)actorProperty.GetTessellationLevelFactorOuter0()));
+	pActorTessellationLevelFactorOuter0->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorOuter0(), VT_I4));
 
 	// Tessellation level factor outer1
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter1 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorOuter1);
-	pActorTessellationLevelFactorOuter1->SetOriginalValue(_variant_t((int)actorProperty.GetTessellationLevelFactorOuter1()));
+	pActorTessellationLevelFactorOuter1->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorOuter1(), VT_I4));
 
 	// Tessellation level factor outer2
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter2 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorOuter2);
-	pActorTessellationLevelFactorOuter2->SetOriginalValue(_variant_t{ actorProperty.GetTessellationLevelFactorOuter2() });
+	pActorTessellationLevelFactorOuter2->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorOuter2(), VT_I4 ));
 
 	// Tessellation level factor outer3
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter3 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactor->GetSubItem(idxTessellationLevelFactorOuter3);
-	pActorTessellationLevelFactorOuter3->SetOriginalValue(_variant_t((int)actorProperty.GetTessellationLevelFactorOuter3()));
+	pActorTessellationLevelFactorOuter3->SetValue(_variant_t((long)actorProperty.GetTessellationLevelFactorOuter3(), VT_I4));
+
+
+
+
+
+	// Geometry
+	CMFCPropertyGridProperty* pActorGeometry = (CMFCPropertyGridProperty*)pActorProperty->GetSubItem(idxGeometry);
+	subItemCnt = pActorGeometry->GetSubItemsCount();
+
+	// GeometryFunc
+	CMFCPropertyGridProperty* pActorGeometryFunc = (CMFCPropertyGridProperty*)pActorGeometry->GetSubItem(idxGeometryFunc);
+
+	// Geometry On/Off
+	CMFCPropertyGridProperty* pActorGeometryFuncOnOff = (CMFCPropertyGridProperty*)pActorGeometryFunc->GetSubItem(idxGeometryFuncOnOff);
+	pActorGeometryFuncOnOff->SetValue(_variant_t(actorProperty.GetGeometryOnOff()));
+
+	// GeometryLevelFactor
+	CMFCPropertyGridProperty* pActorGeometryLevelFactor = (CMFCPropertyGridProperty*)pActorGeometry->GetSubItem(idxGeometryLevelFactor);
+
+	// Geometry factor fur layer
+	CMFCPropertyGridProperty* pActorGeometryLevelFactorFurLayer = (CMFCPropertyGridProperty*)pActorGeometryLevelFactor->GetSubItem(idxGeometryLevelFactorFurLayer);
+	pActorGeometryLevelFactorFurLayer->SetValue(_variant_t((long)actorProperty.GetGeometryLevelFactorFurLayer(), VT_I4));
+
+	// Geometry factor fur depth
+	CMFCPropertyGridProperty* pActorGeometryLevelFactorFurDepth = (CMFCPropertyGridProperty*)pActorGeometryLevelFactor->GetSubItem(idxGeometryLevelFactorFurDepth);
+	pActorGeometryLevelFactorFurDepth->SetValue(_variant_t(actorProperty.GetGeometryLevelFactorFurDepth()));
 
 }
 
@@ -398,17 +438,17 @@ void CActorPropertiesWnd::getActorProperty(CActorProperty& actorProperty) {
 	CMFCPropertyGridProperty* pActorTessellationLevelFactors = (CMFCPropertyGridProperty*)pActorTessellation->GetSubItem(idxTessellationLevelFactor);
 
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter0 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorOuter0);
-	int tessellationFactorOuter0 = pActorTessellationLevelFactorOuter0->GetValue().intVal;
+	int tessellationFactorOuter0 = pActorTessellationLevelFactorOuter0->GetValue().lVal;
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter1 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorOuter1);
-	int tessellationFactorOuter1 = pActorTessellationLevelFactorOuter1->GetValue().intVal;
+	int tessellationFactorOuter1 = pActorTessellationLevelFactorOuter1->GetValue().lVal;
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter2 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorOuter2);
-	int tessellationFactorOuter2 = pActorTessellationLevelFactorOuter2->GetValue().intVal;
+	int tessellationFactorOuter2 = pActorTessellationLevelFactorOuter2->GetValue().lVal;
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorOuter3 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorOuter3);
-	int tessellationFactorOuter3 = pActorTessellationLevelFactorOuter3->GetValue().intVal;
+	int tessellationFactorOuter3 = pActorTessellationLevelFactorOuter3->GetValue().lVal;
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorInner0 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorInner0);
-	int tessellationFactorInner0 = pActorTessellationLevelFactorInner0->GetValue().intVal;
+	int tessellationFactorInner0 = pActorTessellationLevelFactorInner0->GetValue().lVal;
 	CMFCPropertyGridProperty* pActorTessellationLevelFactorInner1 = (CMFCPropertyGridProperty*)pActorTessellationLevelFactors->GetSubItem(idxTessellationLevelFactorInner1);
-	int tessellationFactorInner1 = pActorTessellationLevelFactorInner1->GetValue().intVal;
+	int tessellationFactorInner1 = pActorTessellationLevelFactorInner1->GetValue().lVal;
 
 
 
@@ -431,5 +471,15 @@ void CActorPropertiesWnd::getActorProperty(CActorProperty& actorProperty) {
 
 	actorProperty.SetGeometryOnOff(geometryOnOff);
 
+
+	CMFCPropertyGridProperty* pActorGeometryLevelFactors = (CMFCPropertyGridProperty*)pActorGeometry->GetSubItem(idxGeometryLevelFactor);
+
+	CMFCPropertyGridProperty* pActorGeometryLevelFactorFurLayer = (CMFCPropertyGridProperty*)pActorGeometryLevelFactors->GetSubItem(idxGeometryLevelFactorFurLayer);
+	int geometryLevelFactorFurLayer = pActorGeometryLevelFactorFurLayer->GetValue().lVal;
+	actorProperty.SetGeometryLevelFactorFurLayer(geometryLevelFactorFurLayer);
+
+	CMFCPropertyGridProperty* pActorGeometryLevelFactorFurDepth = (CMFCPropertyGridProperty*)pActorGeometryLevelFactors->GetSubItem(idxGeometryLevelFactorFurDepth);
+	float geometryLevelFactorFurDepth = pActorGeometryLevelFactorFurDepth->GetValue().fltVal;
+	actorProperty.SetGeometryLevelFactorFurDepth(geometryLevelFactorFurDepth);
 
 }

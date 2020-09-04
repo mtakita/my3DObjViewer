@@ -12,6 +12,7 @@
 using namespace mymath;
 
 class CActor;
+class CActorProperty;
 
 class CActorAABB : CSelectable
 {

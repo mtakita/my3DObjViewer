@@ -43,7 +43,7 @@ void CMyTreeView::OnTvnItemChanged(NMHDR* pNMHDR, LRESULT* pResult)
 		p->SelectActor(actorID, pDoc);
 
 		// Signal that the document is updated.
-	//	pDoc->SetModifiedFlag();
+//		pDoc->SetModifiedFlag();
 
 	}
 }

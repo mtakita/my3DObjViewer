@@ -148,6 +148,9 @@
     <Filter Include="inc\properties\worldOutliner">
       <UniqueIdentifier>{edf72cad-7fe7-449a-bbba-c3250237fbef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="inc\properties\actorProperty">
+      <UniqueIdentifier>{1b73498c-bb4e-4796-98c1-994d0b5cdb7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -285,17 +288,11 @@
     <ClInclude Include="CSelectable.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CActorPropertiesWnd.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CDeviceContext.h">
       <Filter>inc\common</Filter>
     </ClInclude>
     <ClInclude Include="CActorProperty.h">
       <Filter>inc\properties</Filter>
-    </ClInclude>
-    <ClInclude Include="CMyMFCPropertyGridCtrl.h">
-      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="CEyeSpace.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -341,6 +338,12 @@
     </ClInclude>
     <ClInclude Include="CFurBase.h">
       <Filter>inc\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="CActorPropertiesWnd.h">
+      <Filter>inc\properties\actorProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyMFCPropertyGridCtrl.h">
+      <Filter>inc\properties\actorProperty</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -437,14 +440,8 @@
     <ClCompile Include="CSelectable.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CActorPropertiesWnd.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CDeviceContext.cpp">
       <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="CMyMFCPropertyGridCtrl.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="CEyeSpace.cpp">
       <Filter>ソース ファイル</Filter>
@@ -490,6 +487,12 @@
     </ClCompile>
     <ClCompile Include="CFurBase.cpp">
       <Filter>src\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="CActorPropertiesWnd.cpp">
+      <Filter>src\properties\actorProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyMFCPropertyGridCtrl.cpp">
+      <Filter>src\properties\actorProperty</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

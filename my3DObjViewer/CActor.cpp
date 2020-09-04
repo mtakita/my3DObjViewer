@@ -489,6 +489,7 @@ void CActor::RenderRegular(CDeviceContext& devCon, Matrixf4x4 projectionMatrix, 
 		GLint render_model_matrix_loc;
 		GLint render_projection_matrix_loc;
 		GLint fur_layers_loc;
+		GLint fur_depth_loc;
 
 		GLint tessellation_level_inner_0_loc;
 		GLint tessellation_level_inner_1_loc;
@@ -611,10 +612,12 @@ void CActor::RenderRegular(CDeviceContext& devCon, Matrixf4x4 projectionMatrix, 
 			logGlError();
 
 			fur_layers_loc = glGetUniformLocation(renderProgramIdFurGeometry, ACTOR_GEO_fur_layers); logGlError();
+			fur_depth_loc = glGetUniformLocation(renderProgramIdFurGeometry, ACTOR_GEO_fur_depth); logGlError();
 
 			glUniformMatrix4fv(render_model_matrix_loc, 1, GL_TRUE, model_matrix); logGlError();
 			glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_TRUE, projectionMatrix); logGlError();
-			glUniform1f(fur_layers_loc, 30); logGlError();
+			glUniform1f(fur_layers_loc, GetFurLayer()); logGlError();
+			glUniform1f(fur_depth_loc, GetFurDepth()); logGlError();
 
 			for (string useMaterialName : useMaterialNameList) {
 
@@ -1165,6 +1168,8 @@ void CActor::importActorProperty( CActorProperty inActorProperty ) {
 		SetTessellationLevelFactorInner1(inActorProperty.GetTessellationLevelFactorInner1());
 
 		SetFurGeometryOnOff(inActorProperty.GetGeometryOnOff());
+		SetFurLayer(inActorProperty.GetGeometryLevelFactorFurLayer());
+		SetFurDepth(inActorProperty.GetGeometryLevelFactorFurDepth());
 
 		// Clear the flag.
 		m_pActorPropertiesWnd->clearPropertyUpdateFlag();
@@ -1270,3 +1275,8 @@ void CActor::compileShaders(GLuint programId, ShaderInfo2 shaders[], int size) {
 	}
 }
 
+void CActor::getActorProperty(CActorProperty& actorProperty) {
+
+	actorProperty.SetActorProperty(this);
+
+}
